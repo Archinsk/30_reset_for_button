@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="button_styles.css">
+    <title>Title</title>
+</head>
+<body>
+<article class="cross-browser">
+    <h2>Кроссбраузерность и reset на примере кнопки</h2>
+    <p>
+        Данная статья написана после прочтения <a href="https://habr.com/ru/company/ruvds/blog/489820/">этой</a> статьи
+        и немного разъясняет её, а также демонстрирует поведение в разных браузерах.
+    </p>
+    <p>
+        Каскад в CSS является важной составляющей и не такой простой, как может показаться на первый взгляд. При
+        применении стилей могут возникать конфликты, когда одно и то же свойство с разными значениями применяется к
+        одному элементу. Браузер должен понимать какое из правил применить к элементу. На приоритет применения стилей
+        влияет в том числе и место расположения таблиц. Так как мы рассматриваем кроссбраузерность, то необходимо вкраце
+        затронуть важность применения правил.
+    </p>
+    <p>
+        Существует пять уровней важности стилей:
+    <ol>
+        <li>Стили браузера (user agent stylesheet)</li>
+        <li>Пользовательские стили</li>
+        <li>Авторские стили</li>
+        <li>Важные авторские стили</li>
+        <li>Важные пользовательские стили</li>
+    </ol>
+    </p>
+    <p>
+        В каждом браузере есть встроенные умолчания для свойств. Это сделано для того, чтобы даже без применения стилей,
+        написанных веб-разработчиком, html-страница смотрелась весьма читаемо. Без браузерных стилей размеченная страница
+        выглядела бы монотонно, как документ, написанный в блокноте. Браузеры добавляют отступы к тегу body, размеры
+        шрифта для текста и для заголовков, вертикальные отступы для абзацев, поля и маркировку списков и т.д. Все это
+        улучшает читаемость документа. Однако, иногда эти стили являются неприемлемыми и в таком случае они требуют
+        переопределения. Стоит отметить также, что нет стандартизации значений для свойств элементов и каждый браузер
+        устанавливает свои значения. Далее мы увидим это на примере отображения кнопки без авторских стилей. Переживать
+        по поводу изменения стилей браузера не стоит, хотя на форумах нередко встречается фраза "я не могу
+        переопределить умолчания браузера". Умолчания браузера имеют наименьшую важность, переопределяются всеми
+        остальными источниками стилей и применяются только при отсутствии свойств в других местах.
+    </p>
+    <p>
+        Пользовательские стили позволяют кастомизировать браузер. Ранее это делалось в настройках пользователя
+        размещением пользовательских CSS в отдельном файле. Это приводит к тому, что страницы без авторских таблиц
+        используют не браузерные умолчания, а стили прописанные в файле. Например указав в файле оранжевый фон для body
+        на всех страницах без авторских стилей мы получим оранжевый фон. Наличие авторских стилей перекроет
+        пользовательские стили.
+    </p>
+    <p>
+        Авторские стили - это стили, написанные разработчиком, размещенные во внешних файлах, или внутри документа html
+        (в теге style или в атрибуте элемента style). Это основная группа стилевых таблиц.
+    </p>
+    <p>
+        В некоторых случаях попытки переопределения существующих стилей страницы не приводят к ожидаемому результату,
+        иногда это происходит из-за указания свойств в атрибуте style конкретного элемента. Если нет возможности внести
+        изменения в html-документ, то переопределить такие свойства можно с помощью специального элемента !important.
+    </p>
+    <p>
+        Тем не менее, несмотря на важность авторства, приоритет, всё-таки, остается за пользователем. И специальный
+        элемент !important в пользовательских стилях имеет наибольший приоритет. Например, у пользователя могут быть
+        проблемы со зрением и ему требуется размер шрифта больший, чем указано в авторских стилях. Важные
+        пользовательские стили решают данную проблему.
+    </p>
+    <p>
+        Пользовательские стили все ещё можно подключить в Internet Explorer. Такая возможность ранее присутствовала и в
+        Chrome, но начиная с 33-й версии данный функционал был удалён.
+    </p>
+
+</article>
+<div class="default-buttons">
+    <img src="img/button-chrome-default.jpg" alt="">
+    <img src="img/button-firefox-default.jpg" alt="">
+    <img src="img/button-safari-default.jpg" alt="">
+    <img src="img/button-edge-default.jpg" alt="">
+    <img src="img/button-opera-default.jpg" alt="">
+    <img src="img/button-ie11-default.jpg" alt="">
+</div>
+<div class="reboot-buttons">
+    <img src="img/button-chrome-reboot.jpg" alt="">
+    <img src="img/button-firefox-reboot.jpg" alt="">
+    <img src="img/button-safari-reboot.jpg" alt="">
+    <img src="img/button-edge-reboot.jpg" alt="">
+    <img src="img/button-opera-reboot.jpg" alt="">
+    <img src="img/button-ie11-reboot.jpg" alt="">
+</div>
+<div class="reboot-styled">
+    <img src="img/button-chrome-styled.jpg" alt="">
+    <img src="img/button-firefox-styled.jpg" alt="">
+    <img src="img/button-safari-styled.jpg" alt="">
+    <img src="img/button-edge-styled.jpg" alt="">
+    <img src="img/button-opera-styled.jpg" alt="">
+    <img src="img/button-ie11-styled.jpg" alt="">
+</div>
+<div class="default-bootstrap-buttons">
+    <img src="img/button-chrome-bootstrap-default.jpg" alt="">
+    <img src="img/button-firefox-bootstrap-default.jpg" alt="">
+    <img src="img/button-safari-bootstrap-default.jpg" alt="">
+    <img src="img/button-edge-bootstrap-default.jpg" alt="">
+    <img src="img/button-opera-bootstrap-default.jpg" alt="">
+    <img src="img/button-ie11-bootstrap-default.jpg" alt="">
+</div>
+<button type="button">Button</button>
+<button class="reboot-button" type="button">Button</button>
+<button class="styled-button" type="button">Button</button>
+
+<h3>Chrome</h3>
+<pre>
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+</pre>
+
+</body>
+</html>
